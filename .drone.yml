@@ -7,7 +7,7 @@ build:
     event: push
 publish:
   docker:
-    username: $$DOCKER_USER
+    username: allanks
     password: $$DOCKER_PASSWORD
     email: $$EMAIL
     repo: allanks/tas-job
