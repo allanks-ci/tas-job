@@ -1,0 +1,21 @@
+workspace:
+  base: /go
+  path: src/github.com/allanks-ci/tas-job
+
+pipeline:
+  compile:
+    image: golang
+    commands:
+      - go get
+      - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+    when:
+      event: push
+
+  docker:
+    username: $DOCKER_USER
+    password: $DOCKER_PASSWORD
+    email: $EMAIL
+    repo: allanks/tas-job
+    when:
+      branch: master
+      event: push
