@@ -7,9 +7,9 @@ build:
     event: push
 publish:
   docker:
-    username: $DOCKER_USER
-    password: $DOCKER_PASSWORD
-    email: $EMAIL
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASSWORD
+    email: $$EMAIL
     repo: allanks/tas-job
     when:
       branch: master
