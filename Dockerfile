@@ -1,7 +1,7 @@
 FROM scratch
 EXPOSE 8080
 
-ADD tas-job /tas-job
+ADD main /tas-job
 
 ENTRYPOINT ["/tas-job"]
 CMD [""]
