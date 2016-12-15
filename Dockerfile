@@ -1,7 +1,9 @@
 FROM scratch
 EXPOSE 8080
 
-ADD main /tas-job
+WORKDIR /server
+ADD static /server/
+ADD main /server/tas-job
 
-ENTRYPOINT ["/tas-job"]
+ENTRYPOINT ["./tas-job"]
 CMD [""]
