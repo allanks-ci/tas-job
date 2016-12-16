@@ -19,7 +19,6 @@ publish:
   ssh:
     host: docker-testbed
     user: root
-    port:
     commands:
       - docker login -u allanks -p $$DOCKER_PASSWORD
       - docker pull allanks/tas-job
