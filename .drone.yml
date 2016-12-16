@@ -22,9 +22,12 @@ publish:
     commands:
       - docker login -u allanks -p $$DOCKER_PASSWORD
       - docker pull allanks/tas-job
+      - echo "Stopping tas-job"
       - docker stop tas-job
+      - echo "Removing tas-job"
       - docker rm tas-job
-      - docker run --name tas-job -p 8080:8080 allanks/tas-job
+      - echo "Starting tas-job"
+      - docker run -d --name tas-job -p 8080:8080 allanks/tas-job
     when:
       branch: master
       event: push
