@@ -14,3 +14,13 @@ publish:
     when:
       branch: master
       event: push
+deploy:
+  ssh:
+    host: docker-testbed
+    user: root
+    commands:
+      - docker login -u allanks -p $$DOCKER_PASSWORD
+      - docker pull allanks/tas-job
+      - docker stop tas-job
+      - docker rm tas-job
+      - docker run --name tas-job -p 8080:8080 allanks/tas-job
