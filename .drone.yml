@@ -17,7 +17,7 @@ publish:
       event: push
 
   ssh:
-    host: docker-testbed
+    host: $$HOST
     user: root
     commands:
       - docker login -u allanks -p $$DOCKER_PASSWORD
