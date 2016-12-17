@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html> 
+<html>  
   <head>
   </head>
-
+      
   <body>
-    <section id="job-list">
-      <h1>Jobs</h1>
-      <ul>
-        {{range .}}
-        <li>
-          <form action="job/{{.Id}}" method="get">
-            {{.Title}}: 
-            <input type="submit" value="Edit Job"/>
-          </form>
-          <form action="remove/{{.Id}}" method="get">
-            <input type="submit" value="Delete Job"/>
-          </form>
-        </li>
-        {{end}}
-        <li>
-        <form action="job/0" method="get">
-          <input type="submit" value="Create New Job"/>
-        </form>
-        </li>
-      </ul>
-    </section>
+    <form action="/job/{{.Id}}" method="post">
+      Title<br>
+      <input type="text" name="Title" value="{{.Title}}" /><br>
+      Description<br>
+      <textarea name="Description">{{.Description}}</textarea><br>
+      <input type="submit" value="Save">
+    </form>
+    <form action="/" method="get">
+      <input type="submit" value="Exit">
+    </form>
   </body>
 </html>

@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Hello World</title>
-</head>
-<body>
-	<h1>Hello World</h1>
-	<p>Hello</p>
-</body>
-</html> 
+<html> 
+  <head>
+  </head>
+
+  <body>
+    <section id="job-list">
+      <h1>Jobs</h1>
+      <ul>
+        {{range .}}
+        <li>
+          <form action="job/{{.Id}}" method="get">
+            {{.Title}}: 
+            <input type="submit" value="Edit Job"/>
+          </form>
+          <form action="remove/{{.Id}}" method="get">
+            <input type="submit" value="Delete Job"/>
+          </form>
+        </li>
+        {{end}}
+        <li>
+        <form action="job/0" method="get">
+          <input type="submit" value="Create New Job"/>
+        </form>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
