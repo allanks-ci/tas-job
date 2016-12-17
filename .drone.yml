@@ -27,7 +27,7 @@ publish:
       - echo "Removing tas-job"
       - docker rm tas-job
       - echo "Starting tas-job"
-      - docker run -d --name tas-job -p 8080:8080 allanks/tas-job
+      - docker run -d -e "IO_TAZZY_SECRET=$$TAZZY_SECRET" -e "APP_SHORTCODE=jobstore" -v /db/bolt/tas-job:/db --name tas-job -p 8080:8080 allanks/tas-job
     when:
       branch: master
       event: push
