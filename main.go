@@ -68,7 +68,7 @@ func create(rw http.ResponseWriter, req *http.Request) {
 			infoLog.Printf("UpdateJob strconv error: %v", err)
 			decoder := json.NewDecoder(getJobFromBolt(jid, req.Header.Get("tazzy-tenant")))
 			var job Job
-			infoLog.Printf("UpdateJob json error: %v", decoder.Decode(job))
+			infoLog.Printf("UpdateJob json error: %v", decoder.Decode(&job))
 			t.Execute(rw, job)
 		}
 	}
